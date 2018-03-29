@@ -20,8 +20,7 @@ tape('[Collation]: Header functions', function (t) {
     compareDefaultHeader(st, header)
 
     var collation = new Collation()
-    header = collation.header
-    compareDefaultHeader(st, header)
+    compareDefaultHeader(st, collation)
 
     st.end()
   })

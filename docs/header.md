@@ -3,7 +3,9 @@
 ### Table of Contents
 
 -   [CollationHeader][1]
--   [hash][2]
+-   [networkId][2]
+-   [shardNumber][3]
+-   [hash][4]
 
 ## CollationHeader
 
@@ -11,29 +13,45 @@ An object that represents the collation header
 
 **Parameters**
 
--   `data` **[Array][3]** raw data, deserialized
+-   `data` **[Array][5]** raw data, deserialized
 
 **Properties**
 
--   `shardId` **[Buffer][4]** Identifier for the shard
--   `parentHash` **[Buffer][4]** Hash of the collation's parent
--   `chunkRoot` **[Buffer][4]** The root hash of the chunk tree
--   `period` **[Buffer][4]** Collation tree extension period
--   `height` **[Buffer][4]** Height of collation in collation tree
--   `proposerAddress` **[Buffer][4]** The proposer's address
--   `proposerBid` **[Buffer][4]** Bid of the proposer
--   `proposerSignature` **[Buffer][4]** Signature of the proposer
+-   `shardId` **[Buffer][6]** Identifier for the shard
+-   `parentHash` **[Buffer][6]** Hash of the collation's parent
+-   `chunkRoot` **[Buffer][6]** The root hash of the chunk tree
+-   `period` **[Buffer][6]** Collation tree extension period
+-   `height` **[Buffer][6]** Height of collation in collation tree
+-   `proposerAddress` **[Buffer][6]** The proposer's address
+-   `proposerBid` **[Buffer][6]** Bid of the proposer
+-   `proposerSignature` **[Buffer][6]** Signature of the proposer
+
+## networkId
+
+Returns the network Id of the collation
+
+Returns **int** 
+
+## shardNumber
+
+Returns the shard number of the collation
+
+Returns **int** 
 
 ## hash
 
 Returns the keccak-256 hash of the collation header
 
-Returns **[Buffer][4]** 
+Returns **[Buffer][6]** 
 
 [1]: #collationheader
 
-[2]: #hash
+[2]: #networkid
 
-[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[3]: #shardnumber
 
-[4]: https://nodejs.org/api/buffer.html
+[4]: #hash
+
+[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[6]: https://nodejs.org/api/buffer.html
