@@ -3,30 +3,25 @@
 ### Table of Contents
 
 -   [Collation][1]
--   [hash][2]
 
 ## Collation
 
-Creates a new collation object
+**Extends CollationHeader**
+
+An object that represents a collation
 
 **Parameters**
 
--   `data` **([Array][3] \| [Buffer][4] \| [Object][5])** 
+-   `data` **([Array][2] \| [Buffer][3] \| [Object][4])** the raw serialized or the deserialized collation
 
 **Properties**
 
 -   `header` **Header** the collation header
 
-## hash
-
-Produces a hash the RLP of the collation
-
 [1]: #collation
 
-[2]: #hash
+[2]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[3]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[3]: https://nodejs.org/api/buffer.html
 
-[4]: https://nodejs.org/api/buffer.html
-
-[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[4]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

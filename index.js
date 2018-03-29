@@ -3,38 +3,31 @@ const rlp = ethUtil.rlp
 const CollationHeader = require('./header')
 
 /**
- * Creates a new collation object
- * @constructor the raw serialized or the deserialized collation.
- * @param {Array|Buffer|Object} data
+ * An object that represents a collation
+ * @extends CollationHeader
  * @prop {Header} header the collation header
  */
-var Collation = module.exports = function (data) {
-  Object.defineProperty(this, 'raw', {
-    get: function () {
-      return this.serialize(false)
+class Collation extends CollationHeader {
+  /**
+   * @constructor
+   * @param {Array|Buffer|Object} data the raw serialized or the deserialized collation
+   */
+  constructor (data) {
+    // defaults
+    if (!data) {
+      data = [[], [], []]
     }
-  })
 
-  // defaults
-  if (!data) {
-    data = [[], [], []]
-  }
+    if (Buffer.isBuffer(data)) {
+      data = rlp.decode(data)
+    }
 
-  if (Buffer.isBuffer(data)) {
-    data = rlp.decode(data)
-  }
-
-  if (Array.isArray(data)) {
-    this.header = new CollationHeader(data[0])
-  } else {
-    this.header = new CollationHeader(data.header)
+    if (Array.isArray(data)) {
+      super(data[0])
+    } else {
+      super(data.header)
+    }
   }
 }
 
-/**
- * Produces a hash the RLP of the collation
- * @method hash
- */
-Collation.prototype.hash = function () {
-  return this.header.hash()
-}
+module.exports = Collation
