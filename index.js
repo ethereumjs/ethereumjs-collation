@@ -32,6 +32,24 @@ var Collation = module.exports = function (data) {
 }
 
 /**
+ * Returns the network Id of the collation
+ * @method networkId
+ * @return {int}
+ */
+Collation.prototype.networkId = function () {
+  return this.header.networkId()
+}
+
+/**
+ * Returns the shard number of the collation
+ * @method shardNumber
+ * @return {int}
+ */
+Collation.prototype.shardNumber = function () {
+  return this.header.shardNumber()
+}
+
+/**
  * Produces a hash of the collation header
  * @method hash
  */

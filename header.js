@@ -1,3 +1,4 @@
+const assert = require('assert')
 const utils = require('ethereumjs-util')
 
 /**
@@ -54,6 +55,26 @@ var CollationHeader = module.exports = function (data) {
   }
   ]
   utils.defineProperties(this, fields, data)
+
+  assert(this.shardNumber() >= 0 && this.shardNumber() < 100) // TODO: replace with SHARD_COUNT from util lib
+}
+
+/**
+ * Returns the network Id of the collation
+ * @method networkId
+ * @return {int}
+ */
+CollationHeader.prototype.networkId = function () {
+  return utils.bufferToInt(this.shardId.slice(0, 1))
+}
+
+/**
+ * Returns the shard number of the collation
+ * @method shardNumber
+ * @return {int}
+ */
+CollationHeader.prototype.shardNumber = function () {
+  return utils.bufferToInt(this.shardId.slice(-1))
 }
 
 /**
