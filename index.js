@@ -32,7 +32,7 @@ var Collation = module.exports = function (data) {
 }
 
 /**
- * Produces a hash the RLP of the collation
+ * Produces a hash of the collation header
  * @method hash
  */
 Collation.prototype.hash = function () {

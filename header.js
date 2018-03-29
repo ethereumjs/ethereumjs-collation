@@ -62,5 +62,5 @@ var CollationHeader = module.exports = function (data) {
  * @return {Buffer}
  */
 CollationHeader.prototype.hash = function () {
-  return utils.rlphash(this.raw)
+  return utils.sha3(this.raw)
 }
